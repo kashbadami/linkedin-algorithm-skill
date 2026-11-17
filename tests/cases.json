@@ -1,47 +1,149 @@
 [
-  {"name": "clean post passes", "vector": "all", "expect": "pass",
-   "args": {"reader": "sales leaders", "headline": "Sales leader | I build pipeline that turns into revenue", "posted_today": "no"},
-   "text": "Sales leaders: your new rep's first month goes to building a list.\nHere is what the first 25 accounts should look like instead.\n\nOne buying signal per account. One person who decides. One note.\n\nWould you rather your new hire ramp on accounts you picked, or on ones they found?"},
-  {"name": "no reader named in first 3 lines", "vector": "1+5", "expect": "block",
-   "args": {"posted_today": "no"},
-   "text": "I spent the weekend thinking about lists.\nIt changed how I see the whole thing.\nHere is why.\n\nWhich would you pick, A or B?"},
-  {"name": "long first line", "vector": "2", "expect": "warn",
-   "args": {"posted_today": "no"},
-   "text": "Founders who have tried for the last two years to hire their first salesperson and watched them fail in the first ninety days, this is for you.\nOne fix.\n\nHire for the list or for the pitch?"},
-  {"name": "over 1,800 characters", "vector": "2", "expect": "warn",
-   "args": {"posted_today": "no"},
-   "text": "Founders: hiring your first rep.\n\nLONGBODY\n\nList first or pitch first?"},
-  {"name": "comment-a-keyword ask", "vector": "3", "expect": "block",
-   "args": {"posted_today": "no"},
-   "text": "Founders: I built a hiring checklist.\nComment GUIDE and I'll send it.\n\nList first or pitch first?"},
-  {"name": "one-word bait question", "vector": "3", "expect": "block",
-   "args": {"posted_today": "no"},
-   "text": "Founders: hire for the list, not the pitch.\nAgree?"},
-  {"name": "tag-a-friend bait", "vector": "3", "expect": "block",
-   "args": {"posted_today": "no"},
-   "text": "Founders: hire for the list, not the pitch.\nTag someone who needs this.\n\nList or pitch?"},
-  {"name": "machine-written phrasing", "vector": "4", "expect": "block",
-   "args": {"posted_today": "no"},
-   "text": "In today's fast-paced world, founders must delve into hiring.\nThis checklist is a game-changer.\n\nList or pitch?"},
-  {"name": "four tags", "vector": "6", "expect": "block",
-   "args": {"posted_today": "no"},
-   "text": "Founders: hire for the list. @Amy @Bob @Cat @Dan\n\nList or pitch?"},
-  {"name": "two tags", "vector": "6", "expect": "warn",
-   "args": {"posted_today": "no"},
-   "text": "Founders: hire for the list. Thanks @Amy and @Bob for the data.\n\nList or pitch?"},
-  {"name": "no closing question", "vector": "7", "expect": "warn",
-   "args": {"posted_today": "no"},
-   "text": "Founders: hire for the list, not the pitch.\nThat's the whole lesson."},
-  {"name": "generic closing question", "vector": "7", "expect": "warn",
-   "args": {"posted_today": "no"},
-   "text": "Founders: hire for the list, not the pitch.\nWhat do you think?"},
-  {"name": "off-headline topic", "vector": "9", "expect": "warn",
-   "args": {"headline": "Sales leader | pipeline and revenue", "posted_today": "no"},
-   "text": "Founders: my sourdough finally rose.\nThe trick was the starter.\n\nRye or wheat?"},
-  {"name": "second post today", "vector": "10", "expect": "block",
-   "args": {"posted_today": "yes"},
-   "text": "Founders: hire for the list, not the pitch.\n\nList or pitch?"},
-  {"name": "link in body", "vector": "link", "expect": "block",
-   "args": {"posted_today": "no"},
-   "text": "Founders: the checklist is at example.com/checklist\n\nList or pitch?"}
+ {
+  "name": "clean post passes",
+  "vector": "all",
+  "expect": "pass",
+  "args": {
+   "reader": "sales leaders",
+   "headline": "Sales leader | I build pipeline that turns into revenue",
+   "posted_today": "no"
+  },
+  "text": "Sales leaders: your new rep's first month goes to building a list.\nHere is what the first 25 accounts should look like instead.\n\nOne buying signal per account. One person who decides. One note.\n\nWould you rather your new hire ramp on accounts you picked, or on ones they found?"
+ },
+ {
+  "name": "no reader named in first 3 lines",
+  "vector": "1+5",
+  "expect": "block",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "I spent the weekend thinking about lists.\nIt changed how I see the whole thing.\nHere is why.\n\nWhich would you pick, A or B?"
+ },
+ {
+  "name": "long first line",
+  "vector": "2",
+  "expect": "warn",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "Founders who have tried for the last two years to hire their first salesperson and watched them fail in the first ninety days, this is for you.\nOne fix.\n\nHire for the list or for the pitch?"
+ },
+ {
+  "name": "over 1,800 characters",
+  "vector": "2",
+  "expect": "warn",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "Founders: hiring your first rep.\n\nLONGBODY\n\nList first or pitch first?"
+ },
+ {
+  "name": "comment-a-keyword ask",
+  "vector": "3",
+  "expect": "block",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "Founders: I built a hiring checklist.\nComment GUIDE and I'll send it.\n\nList first or pitch first?"
+ },
+ {
+  "name": "capitalized keyword ask",
+  "vector": "3",
+  "expect": "block",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "Founders hiring a rep: the first 25 accounts matter most.\nComment RAMP and I'll build yours, free.\n\nList or pitch?"
+ },
+ {
+  "name": "one-word bait question",
+  "vector": "3",
+  "expect": "block",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "Founders: hire for the list, not the pitch.\nAgree?"
+ },
+ {
+  "name": "tag-a-friend bait",
+  "vector": "3",
+  "expect": "block",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "Founders: hire for the list, not the pitch.\nTag someone who needs this.\n\nList or pitch?"
+ },
+ {
+  "name": "machine-written phrasing",
+  "vector": "4",
+  "expect": "block",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "In today's fast-paced world, founders must delve into hiring.\nThis checklist is a game-changer.\n\nList or pitch?"
+ },
+ {
+  "name": "four tags",
+  "vector": "6",
+  "expect": "block",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "Founders: hire for the list. @Amy @Bob @Cat @Dan\n\nList or pitch?"
+ },
+ {
+  "name": "two tags",
+  "vector": "6",
+  "expect": "warn",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "Founders: hire for the list. Thanks @Amy and @Bob for the data.\n\nList or pitch?"
+ },
+ {
+  "name": "no closing question",
+  "vector": "7",
+  "expect": "warn",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "Founders: hire for the list, not the pitch.\nThat's the whole lesson."
+ },
+ {
+  "name": "generic closing question",
+  "vector": "7",
+  "expect": "warn",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "Founders: hire for the list, not the pitch.\nWhat do you think?"
+ },
+ {
+  "name": "off-headline topic",
+  "vector": "9",
+  "expect": "warn",
+  "args": {
+   "headline": "Sales leader | pipeline and revenue",
+   "posted_today": "no"
+  },
+  "text": "Founders: my sourdough finally rose.\nThe trick was the starter.\n\nRye or wheat?"
+ },
+ {
+  "name": "second post today",
+  "vector": "10",
+  "expect": "block",
+  "args": {
+   "posted_today": "yes"
+  },
+  "text": "Founders: hire for the list, not the pitch.\n\nList or pitch?"
+ },
+ {
+  "name": "link in body",
+  "vector": "link",
+  "expect": "block",
+  "args": {
+   "posted_today": "no"
+  },
+  "text": "Founders: the checklist is at example.com/checklist\n\nList or pitch?"
+ }
 ]

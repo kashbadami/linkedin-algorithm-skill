@@ -27,7 +27,7 @@ It also blocks a link in the post body.
 
 ## How we tested it
 
-**1. Every vector has a test case: 15 of 15 pass.** `tests/cases.json` holds one clean post that must pass with zero findings, plus 14 broken posts. Each broken post must trip its exact vector at the exact severity. Run it with `python3 tests/run_tests.py`:
+**1. Every vector has a test case: 16 of 16 pass.** `tests/cases.json` holds one clean post that must pass with zero findings, plus 15 broken posts. Each broken post must trip its exact vector at the exact severity. Run it with `python3 tests/run_tests.py`:
 
 ```
 ok    vector all   expect pass   clean post passes
@@ -35,6 +35,7 @@ ok    vector 1+5   expect block  no reader named in first 3 lines
 ok    vector 2     expect warn   long first line
 ok    vector 2     expect warn   over 1,800 characters
 ok    vector 3     expect block  comment-a-keyword ask
+ok    vector 3     expect block  capitalized keyword ask
 ok    vector 3     expect block  one-word bait question
 ok    vector 3     expect block  tag-a-friend bait
 ok    vector 4     expect block  machine-written phrasing
@@ -46,7 +47,7 @@ ok    vector 9     expect warn   off-headline topic
 ok    vector 10    expect block  second post today
 ok    vector link  expect block  link in body
 
-15/15 passed
+16/16 passed
 ```
 
 **2. End to end: Claude ran the skill on a bad draft, and the checker graded the rewrite.** We wrote a draft that breaks seven rules ([`tests/e2e/draft.txt`](tests/e2e/draft.txt)). It has an AI opener, a "Comment HIRE and I'll send" ask, four tags, a link in the body and a "Thoughts?" close. Claude (Sonnet) loaded the skill, scored the draft and rewrote it. Its full output is in [`tests/e2e/claude-output.md`](tests/e2e/claude-output.md). We then ran the checker on the rewrite independently, so the model wasn't grading its own work.

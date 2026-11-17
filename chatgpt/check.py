@@ -23,8 +23,8 @@ DEFAULT_READERS = (
 STOP = {"the", "and", "for", "with", "that", "this", "your", "you", "are", "who", "from", "into", "they",
         "their", "about", "build", "help", "helping", "i", "a", "an", "of", "to", "in", "on", "at", "|", "&"}
 BAIT = [
-    (r"\bcomment\s+[\"'“]?[A-Z]{2,}[\"'”]?(?=[\s.,!]|$)", 0, "comment-a-keyword ask"),
-    (r"\b(comment|reply|type|drop)\b[^.\n]{0,40}\b(and|&)\s+i('| wi)ll\s+(send|dm|share)", re.I, "comment-to-get ask"),
+    (r"\b[Cc]omment\s+[\"'“]?[A-Z]{2,}[\"'”]?(?=[\s.,!]|$)", 0, "comment-a-keyword ask"),
+    (r"\b(comment|reply|type|drop)\b[^.\n]{0,40}\b(and|&)\s+i('| wi)ll\s+(send|dm|share|build|give|email|message)", re.I, "comment-to-get ask"),
     (r"(?im)^\s*(agree|thoughts|right|yes or no)\s*\?\s*$", 0, "one-word bait question"),
     (r"\bcomment\s+(yes|no|below if|\"?yes\"?)\b", re.I, "comment-yes bait"),
     (r"\b(like|repost|share)\s+(this\s+)?if\b", re.I, "like/repost-if bait"),
